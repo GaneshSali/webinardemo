@@ -1,0 +1,18 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<html>
+   <div class="container">
+       {% for blog in blogs %}
+       <div class="jumbotron" style="margin:20px 20px">
+       <p>Title : {{blog.title}}</p>
+       <p>Description : {{blog.desc}}</p>
+       <p>
+           <a class="btn btn-primary" href="{% url 'edit' id=blog.id %}"> Edit</a>
+           <a class="btn btn-danger" href="{% url 'delete' id=blog.id %}"> Delete</a>
+       </p>
+        </div>
+       {% endfor %}
+   </div>
+   
+</html>
+{% endblock %}

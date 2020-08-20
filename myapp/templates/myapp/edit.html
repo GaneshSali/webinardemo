@@ -1,0 +1,33 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<html>
+<center><h1> Edit blog </h1></center>
+<div class="container">
+    <center>
+    <form method="post" action="{% url 'edit' id=blog.id %}">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td> Title :</td>
+                <td> <input type="text" name="title" value="{{blog.title}}" required> </td>
+            </tr>
+            <tr>
+                <td> Description :</td>
+                <td> 
+                    <textarea row=5 col=10 name="desc" required>{{blog.desc}}</textarea> 
+                </td>
+            </tr>
+
+            <tr>
+                <td> <a href="{% url 'index' %}" class="btn btn-primary"> Back </a></td>
+                <td> <input type="submit" class="btn btn-primary"> </td>
+            </tr>
+
+        </table>
+    
+    </form>
+</center>
+</div>
+
+</html>
+{% endblock %}
